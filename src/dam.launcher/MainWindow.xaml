@@ -1,0 +1,81 @@
+﻿<dx:DXWindow x:Class="org.starorigin.dam.launcher.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:local="clr-namespace:org.starorigin.dam.launcher"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Title="{DynamicResource DigitalAssetManager}"
+             Width="1280" Height="800" WindowStartupLocation="CenterScreen"
+             d:DesignHeight="1024" d:DesignWidth="768" mc:Ignorable="d">
+    <dx:DXWindow.Resources>
+        <local:ScalablePaddingConverter x:Key="ScalablePaddingConverter" />
+    </dx:DXWindow.Resources>
+
+    <Grid>
+        <dxlc:TileLayoutControl x:Name="tileLC" Padding="{Binding ActualHeight, RelativeSource={RelativeSource Self}, Converter={StaticResource ScalablePaddingConverter}}">
+            <dxlc:TileLayoutControl.Background>
+                <ImageBrush ImageSource="{DynamicResource tilebg}" Stretch="UniformToFill" />
+            </dxlc:TileLayoutControl.Background>
+
+            <dxlc:TileLayoutControl.Resources>
+                <Style TargetType="dxlc:Tile">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock FontFamily="Segoe UI Light" FontSize="48"
+                                           Text="{Binding}" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock FontFamily="Segoe UI Light" FontSize="48"
+                                           Text="{Binding}" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="MaximizedContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <StackPanel Margin="16">
+                                    <TextBlock FontFamily="Segoe UI Light" FontSize="48"
+                                               Text="{Binding}" />
+                                    <TextBlock FontSize="14" TextWrapping="Wrap">You can define an alternative content template when Tile is maximized using the MaximizedContentTemplate property.</TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+                <SolidColorBrush x:Key="Brush_Data" Color="#FF00ABDC" />
+                <SolidColorBrush x:Key="Brush_App" Color="#FFDA8515" />
+                <SolidColorBrush x:Key="Brush_Sys" Color="#FF54AF0E" />
+            </dxlc:TileLayoutControl.Resources>
+
+            <dxlc:Tile Background="{DynamicResource Brush_Data}"
+                       Click="Tile_Click" Content="文件管理" Header="主界面"
+                       Size="ExtraLarge"
+                       dxlc:TileLayoutControl.GroupHeader="{DynamicResource DataManager}" />
+            <dxlc:Tile Content="分类管理" Header="Tile" Size="Small" />
+            <dxlc:Tile Content="设置" Header="Tile" Size="Small" />
+
+            <dxlc:Tile Background="{DynamicResource Brush_App}"
+                       Content="4" Header="Tile" Size="ExtraLarge"
+                       dxlc:FlowLayoutControl.IsFlowBreak="True"
+                       dxlc:TileLayoutControl.GroupHeader="{DynamicResource AppManager}" />
+            <dxlc:Tile Content="5" Header="Tile" Size="Small" />
+            <dxlc:Tile Content="6" Header="Tile" Size="Small" />
+
+            <dxlc:Tile Background="{DynamicResource Brush_Sys}"
+                       Content="7" Header="Tile" Size="ExtraLarge"
+                       dxlc:FlowLayoutControl.IsFlowBreak="True"
+                       dxlc:TileLayoutControl.GroupHeader="{DynamicResource SysManager}" />
+            <dxlc:Tile Content="8" Header="Tile" Size="Small" />
+            <dxlc:Tile Content="9" Header="Tile" Size="Small" />
+        </dxlc:TileLayoutControl>
+    </Grid>
+</dx:DXWindow>

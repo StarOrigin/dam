@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:org.starorigin.dam.launcher.language"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="DigitalAssetManager">数字资产管理</sys:String>
+
+    <sys:String x:Key="DataManager">数据管理</sys:String>
+    <sys:String x:Key="AppManager">应用管理</sys:String>
+    <sys:String x:Key="SysManager">系统管理</sys:String>
+
+    <sys:String x:Key="FileSystem">文件系统</sys:String>
+
+    <sys:String x:Key="Name">名称</sys:String>
+    <sys:String x:Key="ItemType">类型</sys:String>
+</ResourceDictionary> 
